@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+    DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Programa</title>
+    </h:head>
+    <h:body>
+        <h1> Formulario de Programa </h1>
+        <h:form>            
+            <h:inputHidden id="id" value="#{programaMultiBean.programa.id}"/>
+            <div>
+                Programa: 
+                <p:inputText id="nombre" value="#{programaMultiBean.programa.nombre}" /><br />
+                
+            </div>
+            <div>
+                Descripción: 
+                <p:inputText id="descripcion" value="#{programaMultiBean.programa.descripcion}" />
+            </div>            
+            
+            <br/><br/>
+            <p:commandButton value="Registrar"
+                             action="#{programaMultiBean.save}" update="@form"/>
+        </h:form>
+    </h:body>
+</html>

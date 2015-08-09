@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/
+    DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Programa</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1> Programas </h1>
+            <p:dataTable var="pro" value="#{programaBean.programas}">
+                <p:column headerText="Id" width="10%">
+                    <h:outputText value="#{pro.id}" />
+                </p:column>
+                <p:column headerText="Nombre" width="30%">
+                    <h:outputText value="#{pro.nombre}" />
+                </p:column>
+                <p:column headerText="Descripción" width="40%">
+                    <h:outputText value="#{pro.descripcion}" />
+                </p:column>
+                <p:column headerText="Acciones" width="30%">
+                    <p:commandButton value="Editar"
+                                     actionListener="#{programaBean.update(pro)}"
+                                     update="@form"/>
+                    <p:commandButton value="Eliminar"
+                                     actionListener="#{programaBean.delete(pro)}"
+                                     update="@form" />
+                </p:column>
+            </p:dataTable>
+            <h1> Formulario </h1>
+            <h:inputHidden id="id" value="#{programaBean.programa.id}"/>
+            <div>
+                Programa: 
+                <p:inputText id="nombre" value="#{programaBean.programa.nombre}" /><br />
+                
+            </div>
+            <div>
+                Descripción: 
+                <p:inputText id="descripcion" value="#{programaBean.programa.descripcion}" />
+            </div>            
+            
+            <br/><br/>
+            <p:commandButton value="Registrar"
+                             actionListener="#{programaBean.save}" update="@form"/>
+        </h:form>
+    </h:body>
+</html>
